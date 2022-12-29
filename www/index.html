@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ultimate Tic-Tac-Toe!</title>
+    <style type="text/css">
+      body {
+        font-family: Helvetica, sans-serif;
+      }
+
+      #mega-board {
+        display: inline-grid;
+        column-gap: 5px;
+        row-gap: 5px;
+        
+        padding: 10px;
+
+        grid-template-rows: repeat(3, 200px);
+        grid-template-columns: repeat(3, 200px);
+
+        position: relative;
+      }
+
+      #turn {
+        font-size: 40px;
+      }
+
+      .board {
+        position: relative;
+      }
+
+      /* Board Winner */
+      .winner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        font-size: 150px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+
+      .winner-red {
+        background-color: #E74B58C0;
+      }
+
+      .winner-blue {
+        background-color: #58A2DAC0;
+      }
+
+      .winner-draw {
+        background-color: #C2BCC8C0;
+      }
+
+      /* Mega Board Winner */
+      .mega-winner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        font-size: 450px;
+
+        display: grid;
+        align-items: center;
+        justify-items: center;
+      }
+
+      .winner-draw {
+        font-size: 200px;
+      }
+
+      .board {
+        background-color: #F5F4F6;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 10px;
+
+        display: grid;
+
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .square {
+        background-color: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 0px;
+
+        display: grid;
+
+        text-align: center;
+        justify-items: center;
+
+        align-items: center;
+        font-size: 10px;     
+      }
+
+      .won {        
+        font-size: 50px;
+      }
+
+      .best {
+        font-weight: bolder;
+      }
+
+      .current {
+        background-color: #C2BCC8;
+      }
+      .red .available:hover {
+        background-color: #E74B58;
+      }
+      .blue .available:hover {
+        background-color: #58A2DA;
+      }
+
+      .blah {
+        grid-area: 3 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="turn">X's turn</div>
+    <div id="mega-board" class="red"></div>
+    <div id="ai-stats"></div>
+
+    <noscript>This page contains <a href="https://webassembly.org/">WebAssembly</a> and <a href="https://www.javascript.com/">JavaScript</a> content, please enable javascript in your browser.</noscript>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>

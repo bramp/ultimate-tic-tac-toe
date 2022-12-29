@@ -1,0 +1,29 @@
+{
+  "name": "ultimate-tic-tac-toe-app",
+  "version": "0.1.0",
+  "description": "Ultimate Tic-Tac-Toe",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server"
+  },
+  "keywords": [
+    "webassembly",
+    "wasm",
+    "rust",
+    "webpack"
+  ],
+  "author": "Andrew Brampton <me@bramp.net>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ultimate-tic-tac-toe": "file:../pkg"
+  },
+  "devDependencies": {
+    "hello-wasm-pack": "^0.1.0",
+    "copy-webpack-plugin": "^5.0.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
+

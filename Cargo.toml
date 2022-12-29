@@ -1,0 +1,50 @@
+[package]
+name = "ultimate-tic-tac-toe"
+version = "0.1.0"
+authors = ["Andrew Brampton <me@bramp.net>"]
+edition = "2021"
+description = "Ultimate Tic-Tac-Toe Game"
+license = "Apache-2.0"
+
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# TODO Figure out how to enable wasm only when built with `wasm-pack`
+default = ["wasm"]
+wasm = ["wasm-bindgen", "console_error_panic_hook", "web-sys", 
+		"wee_alloc", "getrandom/js"]
+
+[dependencies]
+cfg-if = "1.0.0"
+instant = {version = "0.1.12", features = ["stdweb", "wasm-bindgen"]}
+rand = "0.8.5"
+rand_chacha = "0.3.1"
+substring = "1.4.5"
+thiserror = "1.0.38"
+
+wasm-bindgen = { version = "0.2.83", optional = true }
+getrandom = { version = "0.2.8", optional = true }
+
+# The `console_error_panic_hook` crate provides better debugging of panics by
+# logging them with `console.error`. This is great for development, but requires
+# all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
+# code size when deploying.
+console_error_panic_hook = { version = "0.1.6", optional = true }
+
+# `wee_alloc` is a tiny allocator for wasm that is only ~1K in code size
+# compared to the default allocator's ~10K. It is slower than the default
+# allocator, however.
+wee_alloc = { version = "0.4.5", optional = true }
+web-sys = { version = "0.3.60", optional = true, features=["console"] }
+
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.33"
+
+
+[profile.release]
+# TODO set this only for wasm
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
